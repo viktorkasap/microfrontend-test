@@ -21,9 +21,8 @@ jobs:
         run: |
           curl -fsSL https://get.pnpm.io/install.sh | sh -
           echo "$HOME/.local/share/pnpm" >> $GITHUB_PATH
-          source /home/runner/.bashrc
+          echo 'export PATH="$HOME/.local/share/pnpm:$PATH"' >> $GITHUB_ENV
           pnpm install
-
         env:
           SHELL: /bin/bash
 
