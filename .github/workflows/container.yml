@@ -18,16 +18,10 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Install
-        run: |
-          curl -fsSL https://get.pnpm.io/install.sh | sh -
-          echo "$HOME/.local/share/pnpm" >> $GITHUB_PATH  # Правильно обновляем $PATH для всех шагов
-          pnpm install
-        env:
-          SHELL: /bin/bash
+        run: npm install
 
       - name: Build
-        run: |
-          pnpm build
+        run: npm build
 
       - uses: shinyinc/action-aws-cli@v1.2
 
