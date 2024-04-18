@@ -20,14 +20,14 @@ jobs:
       - name: Install
         run: |
           curl -fsSL https://get.pnpm.io/install.sh | sh -
-          echo "export PATH=\"$HOME/.local/share/pnpm:\$PATH\"" >> $GITHUB_ENV
-          export PATH="$HOME/.local/share/pnpm:$PATH"  # Применяем изменения в текущем shell
+          echo "$HOME/.local/share/pnpm" >> $GITHUB_PATH  # Правильно обновляем $PATH для всех шагов
           pnpm install
         env:
           SHELL: /bin/bash
 
       - name: Build
-        run: pnpm run build
+        run: |
+          pnpm build
 
       - uses: shinyinc/action-aws-cli@v1.2
 
