@@ -18,7 +18,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Install
-        run: curl -fsSL https://get.pnpm.io/install.sh | sh - & pnpm install
+        run: wget -qO- https://get.pnpm.io/install.sh --force | sh - & pnpm install
 
       - name: Build
         run: pnpm run build
